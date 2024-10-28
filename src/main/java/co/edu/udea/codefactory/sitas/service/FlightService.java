@@ -36,7 +36,8 @@ public class FlightService {
         String departureAirportName = flight.getDepartureAirport() != null ? flight.getDepartureAirport().getAirportName() : "No disponible";
         String arrivalAirportName = flight.getArrivalAirport() != null ? flight.getArrivalAirport().getAirportName() : "No disponible";
 
-        String aircraftType = "Boeing 737"; // Este valor debe ser obtenido de un servicio o entidad correspondiente en la lógica real
+        // Eliminar el tipo de aeronave si no está disponible
+        String aircraftType = "No disponible"; // Puedes ajustar esto según tu lógica real
 
         // Crear y retornar los detalles del vuelo
         return new FlightDetails(
