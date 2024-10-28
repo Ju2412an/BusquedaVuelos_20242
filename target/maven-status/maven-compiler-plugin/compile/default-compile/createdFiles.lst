@@ -1,0 +1,10 @@
+co\edu\udea\codefactory\sitas\controller\FlightController$CustomBody.class
+co\edu\udea\codefactory\sitas\model\Airline.class
+co\edu\udea\codefactory\sitas\model\Airport.class
+co\edu\udea\codefactory\sitas\BackendVirtualApplication.class
+co\edu\udea\codefactory\sitas\controller\FlightController.class
+co\edu\udea\codefactory\sitas\repository\FlightRepository.class
+co\edu\udea\codefactory\sitas\service\FlightService.class
+co\edu\udea\codefactory\sitas\model\FlightDetails.class
+co\edu\udea\codefactory\sitas\exception\FlightNotFoundException.class
+co\edu\udea\codefactory\sitas\model\Flight.class

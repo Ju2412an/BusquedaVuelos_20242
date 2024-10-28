@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: co.edu.udea.codefactory.sitas.backendvirtual.service.FlightServiceTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.252 s <<< FAILURE! -- in co.edu.udea.codefactory.sitas.backendvirtual.service.FlightServiceTest
+co.edu.udea.codefactory.sitas.backendvirtual.service.FlightServiceTest.testGetFlightDetails_Success -- Time elapsed: 0.010 s <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "java.util.Date.toString()" because the return value of "co.edu.udea.codefactory.sitas.model.Flight.getDepartureDate()" is null
+	at co.edu.udea.codefactory.sitas.service.FlightService.getFlightDetails(FlightService.java:36)
+	at co.edu.udea.codefactory.sitas.backendvirtual.service.FlightServiceTest.testGetFlightDetails_Success(FlightServiceTest.java:50)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
