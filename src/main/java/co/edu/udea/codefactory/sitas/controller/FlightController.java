@@ -1,24 +1,28 @@
 package co.edu.udea.codefactory.sitas.controller;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.util.List;
+import java.util.UUID;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
 import co.edu.udea.codefactory.sitas.model.Airport;
 import co.edu.udea.codefactory.sitas.model.Flight;
 import co.edu.udea.codefactory.sitas.model.FlightDetails;
 import co.edu.udea.codefactory.sitas.service.FlightService;
 import lombok.Getter;
 import lombok.Setter;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
-import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/flights")
@@ -36,6 +40,10 @@ public class FlightController {
             @RequestParam("departure") UUID departure,
             @RequestParam("arrival") UUID arrival
     ) {
+        if (departure == null || arrival == null) {
+            return ResponseEntity.badRequest().body(null); // Manejar UUID nulos
+        }
+
         try {
             LocalDate parsedDate = LocalDate.parse(departureDate, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
             Airport departureAirport = new Airport();
@@ -44,12 +52,18 @@ public class FlightController {
             arrivalAirport.setUuid(arrival);
 
             List<Flight> flights = flightService.findFlights(parsedDate, departureAirport, arrivalAirport);
+            if (flights.isEmpty()) {
+                logger.warn("No flights found for the specified criteria");
+                return ResponseEntity.noContent().build(); // Sin vuelos encontrados
+            }
+            
             return ResponseEntity.ok(flights);
         } catch (DateTimeParseException e) {
             logger.error("Invalid date format", e);
             return ResponseEntity.badRequest().body(null);
         }
     }
+
 
     @GetMapping("/details/{flightId}")
     public ResponseEntity<FlightDetails> getFlightDetails(@PathVariable UUID flightId) {

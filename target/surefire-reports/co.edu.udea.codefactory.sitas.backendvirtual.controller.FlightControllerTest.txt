@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: co.edu.udea.codefactory.sitas.backendvirtual.controller.FlightControllerTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.619 s <<< FAILURE! -- in co.edu.udea.codefactory.sitas.backendvirtual.controller.FlightControllerTest
-co.edu.udea.codefactory.sitas.backendvirtual.controller.FlightControllerTest.testGetFlightDetails_FlightNotFound -- Time elapsed: 1.318 s <<< ERROR!
+Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.726 s <<< FAILURE! -- in co.edu.udea.codefactory.sitas.backendvirtual.controller.FlightControllerTest
+co.edu.udea.codefactory.sitas.backendvirtual.controller.FlightControllerTest.testGetFlightDetails_FlightNotFound -- Time elapsed: 0.493 s <<< ERROR!
 jakarta.servlet.ServletException: Request processing failed: java.lang.RuntimeException: Flight not found
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1022)
 	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
@@ -18,7 +18,7 @@ jakarta.servlet.ServletException: Request processing failed: java.lang.RuntimeEx
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
 Caused by: java.lang.RuntimeException: Flight not found
-	at co.edu.udea.codefactory.sitas.service.FlightService.getFlightDetails(FlightService.java:27)
+	at co.edu.udea.codefactory.sitas.service.FlightService.getFlightDetails(FlightService.java:30)
 	at co.edu.udea.codefactory.sitas.controller.FlightController.getFlightDetails(FlightController.java:56)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:580)

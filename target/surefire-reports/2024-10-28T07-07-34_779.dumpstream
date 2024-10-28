@@ -1,4 +1,4 @@
-# Created at 2024-10-28T06:45:03.073
+# Created at 2024-10-28T07:07:34.994
 Boot Manifest-JAR contains absolute paths in classpath 'D:\Educ\UDEA\codeFactory2024-2\busqueda-vuelos-back-main\busqueda-vuelos-back-main\target\test-classes'
 Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
 'other' has different root

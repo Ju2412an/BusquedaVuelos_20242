@@ -8,9 +8,13 @@ public class FlightDetails {
     private String flightNumber;
     @Getter
     private String departureAirportName;
+    @Getter
     private String arrivalAirportName;
+    @Getter
     private String departureDateTime;
+    @Getter
     private String arrivalDateTime;
+    @Getter
     private String aircraftType;
     @Getter
     private double price;
@@ -26,5 +30,4 @@ public class FlightDetails {
         this.aircraftType = aircraftType;
         this.price = price;
     }
-
 }
