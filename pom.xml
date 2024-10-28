@@ -8,30 +8,21 @@
         <version>3.3.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
     <groupId>co.edu.udea.codefactory.sitas</groupId>
     <artifactId>backend-virtual</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>backend-virtual</name>
     <description>backend-virtual</description>
-    <url/>
-    <licenses>
-        <license/>
-    </licenses>
-    <developers>
-        <developer/>
-    </developers>
-    <scm>
-        <connection/>
-        <developerConnection/>
-        <tag/>
-        <url/>
-    </scm>
+
     <properties>
         <java.version>17</java.version>
         <sonar.organization>ju2412an</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <sonar.projectKey>Ju2412an_BusquedaVuelos_20242</sonar.projectKey>
+        <sonar.coverage.jacoco.xmlReportPaths>${project.build.directory}/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -41,7 +32,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
@@ -52,7 +42,6 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
@@ -63,26 +52,18 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
-
-        <!-- Dependencia para JUnit 5 -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>5.7.1</version>
             <scope>test</scope>
         </dependency>
-
-
-        <!-- Dependencia para Mockito -->
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
             <version>3.11.2</version>
             <scope>test</scope>
         </dependency>
-
-
-
     </dependencies>
 
     <build>
@@ -110,9 +91,18 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <outputDirectory>${project.build.directory}/jacoco</outputDirectory>
+                    <dataFile>${project.build.directory}/jacoco/jacoco.exec</dataFile>
+                    <output>${project.build.directory}/jacoco/jacoco.xml</output>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.9.1.2184</version>
             </plugin>
         </plugins>
     </build>
-
-
 </project>
